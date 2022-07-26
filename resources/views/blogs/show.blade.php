@@ -50,7 +50,7 @@
     
     <div class="mt-2" style="margin:10px; text-align: right;">
         @if ($user->id == $blog->created_user_id)
-             <a href="/blogs/{{$blog->id}}/edit" class="btn btn-warning" style="display:inline margin-right: 100px">
+            <a href="/blogs/{{$blog->id}}/edit" class="btn btn-warning" style="display:inline margin-right: 100px">
                  編集
             </a>
             <form action="/blogs/{{$blog->id}}" style="display:inline" method='post'>

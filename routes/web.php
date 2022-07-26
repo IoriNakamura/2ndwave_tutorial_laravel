@@ -47,6 +47,8 @@ Route::resource('mypages', App\Http\Controllers\MyPageController::class);
 
 // Route::get('/', [App\Http\Controllers\AnnouncementController::class, 'index'])->name('announcement.index');
 
-Route::get('/list', [App\Http\Controllers\AnnouncementController::class, 'list'])->name('announcement.list');
+//Route::get('/list', [App\Http\Controllers\AnnouncementController::class, 'list'])->name('announcement.list');
 
-Route::get('/{announcement}', [App\Http\Controllers\AnnouncementController::class, 'show'])->name('announcement.show');
+// Route::get('/{announcement}', [App\Http\Controllers\AnnouncementController::class, 'show'])->name('announcement.show');
+
+Route::resource('users', App\Http\Controllers\UserController::class);
