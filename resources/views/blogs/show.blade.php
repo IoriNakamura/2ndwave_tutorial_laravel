@@ -62,7 +62,7 @@
         <span> 
         <!-- ログインしているユーザーが作成したブログにはいいねを押させない　-->
         @if ($user->id == $blog->created_user_id)
-            <a href="/nices/{{$blog->id}}/show"class="btn btn-success">
+            <a href="/nices/{{$blog->id}}"class="btn btn-success">
                 👍    
                 <span class="badge">
                     {{ $blog->nices->count() }}

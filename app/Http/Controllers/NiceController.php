@@ -76,10 +76,18 @@ class NiceController extends Controller
 
     public function show($id) 
     {
-        
         $blog = Blog::find($id);
-
-
-        return view('nices.show', compact('blog'));
+        $query = Nice::query();
+        $query->join('users', function ($join) {
+            $join->on('nices.user_id', '=', 'users.id');
+        })
+        ->select('nices.*', 'users.name')
+        ->where (function ($query) use ($id) {
+            $query->Where('nices.blog_id', 'LIKE', "%{$id}%");
+        });
+        $users = $query->get();
+        //dump($users);
+        //die;
+        return view('nices.show', compact('blog', 'users'));
     }
 }
