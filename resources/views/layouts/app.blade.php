@@ -48,6 +48,9 @@
                     <a href="/mypages" class="float-end">
                         <button class="btn btn-light disabled">マイページ</button>
                     </a>
+                    <a href="/users" class="float-end">
+                        <button class="btn btn-light disabled">ユーザーページ</button>
+                    </a>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
