@@ -47,7 +47,7 @@
             </div> 
             <div class="row">
                 <div class="col-md-4 border bg-info text-center">
-                    いいねしたユーザー 
+                    いいねをしたユーザー 
                 </div>
                     <div class="col-md-8 border">
                         @foreach($users as $user)
