@@ -45,6 +45,17 @@
                     {{ $blog->updated_at }}
                 </div>
             </div> 
+            <div class="row">
+                <div class="col-md-4 border bg-info text-center">
+                    いいねをしたユーザー 
+                </div>
+                    <div class="col-md-8 border">
+                        @foreach($users as $user)
+                            {{ $user->name }}
+                            <br>
+                        @endforeach
+                    </div>
+            </div>
         </div>
     </div>
 </div>
