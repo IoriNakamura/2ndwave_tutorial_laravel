@@ -77,7 +77,7 @@ class NiceController extends Controller
     public function show($id) 
     {
         
-        //$blog = Blog::find($id);
+        $blog = Blog::find($id);
 
 
         return view('nices.show', compact('blog'));
