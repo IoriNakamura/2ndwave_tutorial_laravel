@@ -42,14 +42,12 @@
                                 <a href="/blogs/{{$blog->id}}">
                                     <button class="btn btn-primary">詳細</button>
                                 </a>
-                                <a href="/blogs/{{$blog->id}}" class="btn btn-success">
+                                <a href="/blogs/{{$blog->id}}" class="btn btn-secondary disabled">
                                     👍
                                     <!-- 「いいね」の数を表示 -->
                                     <span class="badge">
                                         {{ $blog->nices->count() }}
                                     </span>
-                                </a>
-                                <a href="/blogs/{{$blog->id}}" class="btn btn-info">
                                     📝
                                     <!-- 「コメント」の数を表示 -->
                                     <span class="badge">

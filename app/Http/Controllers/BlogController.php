@@ -38,8 +38,7 @@ class BlogController extends Controller
         $from = $request->input('from');
         $until = $request->input('until');
         $query = Blog::query();
-        $user = Auth::user();
-        
+        $user = Auth::user();        
         
 
         if(!empty($keyword)) {
