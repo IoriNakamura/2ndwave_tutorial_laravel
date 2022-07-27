@@ -32,7 +32,9 @@ class UserController extends Controller
         $user->update([
             'name'      => $data['name'],
             'email'     => $data['email'],
-            'password'  => $data['password']
+            'password'  => $data['password'],
+            'favorites' => $data['favorites'],
+            'comment'   => $data['comment']
         ]);
 
         $this->success('messages.success.updated', ['name'=>'ユーザー']);
