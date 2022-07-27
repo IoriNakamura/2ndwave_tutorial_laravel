@@ -4,46 +4,6 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <h1>{{$user->name}}のページ</h1>
-            <div class="row">
-                <div class="col-md-4 border bg-info text-center">
-                    名前
-                </div>
-                <div class="col-md-8 border">
-                    {{ $user->name }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 border bg-info text-center">
-                    好きなもの・趣味
-                </div>
-                <div class="col-md-8 border">
-                    {{ $user->favorites }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 border bg-info text-center">
-                    ひとこと
-                </div>
-                <div class="col-md-8 border">
-                    {{ $user->comment }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 border bg-info text-center">
-                    お問い合わせ
-                </div>
-                <div class="col-md-8 border">
-                    {{ $user->email }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 border bg-info text-center">
-                    登録日
-                </div>
-                <div class="col-md-8 border">
-                    {{ $user->created_at }}
-                </div>
-            </div>
             <div>
                 <form action="{{ route('mypages.index') }}" method="GET">
                     <input type="text" name="keyword" placeholder="キーワードを入力" value="{{ $keyword  ?? null }}">
@@ -54,9 +14,6 @@
                     <input type="submit" value="検索">
                 </form>
             </div>
-            <a href="/blogs/create" class="float-end">
-                <button class="btn btn-success">新規登録</button>
-            </a>
             <table class="table">
                 <thead>
                     <tr>
@@ -103,6 +60,47 @@
         <div class="text-center">
             {{ $blogs->appends(request()->query())->links() }} 
         </div>
+        <h2>プロフィール</h2>
+        <div class="row">
+                <div class="col-md-4 border bg-info text-center">
+                    名前
+                </div>
+                <div class="col-md-8 border">
+                    {{ $user->name }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 border bg-info text-center">
+                    好きなもの・趣味
+                </div>
+                <div class="col-md-8 border">
+                    {{ $user->favorites }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 border bg-info text-center">
+                    ひとこと
+                </div>
+                <div class="col-md-8 border">
+                    {{ $user->comment }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 border bg-info text-center">
+                    お問い合わせ
+                </div>
+                <div class="col-md-8 border">
+                    {{ $user->email }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 border bg-info text-center">
+                    登録日
+                </div>
+                <div class="col-md-8 border">
+                    {{ $user->created_at }}
+                </div>
+            </div>
     </div>
 </div>
 @endsection
