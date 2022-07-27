@@ -14,6 +14,22 @@
             </div>
             <div class="row">
                 <div class="col-md-4 border bg-info text-center">
+                    好きなもの・趣味
+                </div>
+                <div class="col-md-8 border">
+                    {{ $user->favorites }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 border bg-info text-center">
+                    ひとこと
+                </div>
+                <div class="col-md-8 border">
+                    {{ $user->comment }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 border bg-info text-center">
                     お問い合わせ
                 </div>
                 <div class="col-md-8 border">

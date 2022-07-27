@@ -31,6 +31,22 @@
                         <input type='text' name='user[password]' class="form-control" required='true' placeholder="パスワードは安全のため表示していません">
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-4 border bg-info text-center">
+                        好きなもの・趣味
+                    </div>
+                    <div class="col-md-8 border">
+                        <input type='text' name='user[favorites]' class="form-control" required='true' value="{{ $user->favorites }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 border bg-info text-center">
+                        ひとこと
+                    </div>
+                    <div class="col-md-8 border">
+                        <input type='text' name='user[comment]' class="form-control" required='true' value="{{ $user->comment }}">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="mt-2" style="margin:10px; text-align: right;">
