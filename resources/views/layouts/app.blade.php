@@ -42,6 +42,7 @@
                     <a href="/blogs" class="float-end">
                         <button class="btn btn-light disabled">ブログ一覧</button>
                     </a>
+                    {{--
                     <a href="/nices" class="float-end">
                         <button class="btn btn-light disabled">お気に入り</button>
                     </a>
@@ -50,7 +51,7 @@
                     </a>
                     <a href="/users" class="float-end">
                         <button class="btn btn-light disabled">ユーザーページ</button>
-                    </a>
+                    </a> --}}
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -66,22 +67,38 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }}
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('ログアウト') }}
-                                    </a>
-
+                                <ul class="dropdown-menu">
+                                    <li>   
+                                        <a class="dropdown-item" href="/mypages">
+                                            マイページ
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>   
+                                        <a class="dropdown-item" href="/nices">
+                                            お気に入り
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" href="/users">
+                                            ユーザー情報変更
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            {{ __('ログアウト') }}
+                                        </a>
+                                    </li>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
-                            </li>
+                                </ul>
+                            </li>   
                         @endguest
                     </ul>
                 </div>
