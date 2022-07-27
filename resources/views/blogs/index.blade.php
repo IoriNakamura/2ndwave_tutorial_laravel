@@ -60,20 +60,18 @@
                                 <a href="/blogs/{{$blog->id}}" class="btn btn-primary" style="display:inline margin-right: 100px">
                                     詳細
                                 </a>
-                                <a href="/blogs/{{$blog->id}}" class="btn btn-success">   
+                                <a href="/blogs/{{$blog->id}}" class="btn btn-secondary disabled">   
                                     👍
                                     <!-- 「いいね」の数を表示 -->
                                     <span class="badge">
                                         {{ $blog->nices->count() }}
                                     </span>
-                                </a> 
-                                <a href="/blogs/{{$blog->id}}" class="btn btn-info">
                                     📝
                                     <!-- 「コメント」の数を表示 -->
                                     <span class="badge">
                                         {{ $blog->comments->count() }}
                                     </span>
-                                </a>
+                                </a> 
                             </td>
                         </tr>
                     @endforeach
