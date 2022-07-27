@@ -50,9 +50,9 @@
                             <td>{{ $blog->title }}</td>
                             <td>{{ $blog->content }}</td>
                             @if (!empty($keyword))
-                                <td>{{  $blog->name }}</td>
+                                <td><a href="mypages/{{$blog->created_user_id}}">{{  $blog->name }}</a></td>
                             @else
-                                <td>{{ $blog->user ? $blog->user->name : '' }}</td>
+                                <td><a href="mypages/{{$blog->created_user_id}}">{{ $blog->user ? $blog->user->name : '' }}</a></td>
                             @endif
                             <td>{{ $blog->created_at }}</td>
                             <td>{{ $blog->updated_at }}</td>

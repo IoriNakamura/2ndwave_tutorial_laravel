@@ -3,9 +3,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>{{$user_name}}のお気に入り</h1>
+            <h1>{{$user_name}}のマイページ</h1>
             <div>
-                <form action="{{ route('nices.index') }}" method="GET">
+                <form action="{{ route('mypages.index') }}" method="GET">
                     <input type="text" name="keyword" placeholder="キーワードを入力" value="{{ $keyword  ?? null }}">
                     <br>
                     <input type="date" name="from" value="{{ $from }}">
@@ -13,8 +13,10 @@
                     <input type="date" name="until" value="{{ $until }}">
                     <input type="submit" value="検索">
                 </form>
-
-            </div> 
+            </div>
+            <a href="/blogs/create" class="float-end">
+                <button class="btn btn-success">新規登録</button>
+            </a>
             <table class="table">
                 <thead>
                     <tr>
@@ -33,7 +35,7 @@
                             <th scope="row">{{ $blog->id }}</th>
                             <td>{{ $blog->title }}</td>
                             <td>{{ $blog->content }}</td>
-                            <td><a href="mypages/{{$blog->created_user_id}}">{{ $blog->user ? $blog->user->name : '' }}</a></td>
+                            <td>{{ $blog->user ? $blog->user->name : '' }}</td>
                             <td>{{ $blog->created_at }}</td>
                             <td>{{ $blog->updated_at }}</td>
                             <td>
