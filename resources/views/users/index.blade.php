@@ -54,6 +54,20 @@
             </div>
             <div class="row">
                 <div class="col-md-4 border bg-info text-center">
+                    プロフィール画像
+                </div>
+                <div class="col-md-8 border">
+                    <label for="profile-image">
+                    @if ($user->profile_image == null)
+                        <img class="rounded-circle" src="{{ asset('default.jpeg') }}" alt="プロフィール画像" width="100" height="100">
+                    @else
+                        <img class="rounded-circle" src="{{ Storage::url($user->profile_image) }}" alt="プロフィール画像" width="100" height="100">
+                    @endif
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 border bg-info text-center">
                     登録日
                 </div>
                 <div class="col-md-8 border">
