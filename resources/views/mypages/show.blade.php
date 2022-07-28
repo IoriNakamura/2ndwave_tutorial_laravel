@@ -60,7 +60,16 @@
         <div class="text-center">
             {{ $blogs->appends(request()->query())->links() }} 
         </div>
-        <h2>プロフィール</h2>
+        <h2>
+            <label for="profile-image">
+                @if ($user->profile_image === null)
+                    <img class="rounded-circle " src="{{ asset('default.jpeg') }}" alt="プロフィール画像" width="60" height="60">
+                @else
+                    <img class="rounded-circle " src="{{ Storage::url($user->profile_image) }}" alt="プロフィール画像" width="60" height="60">
+                @endif
+            </label>
+            プロフィール
+        </h2>
         <div class="row">
                 <div class="col-md-4 border bg-info text-center">
                     名前

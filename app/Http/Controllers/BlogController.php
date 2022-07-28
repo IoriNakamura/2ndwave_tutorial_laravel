@@ -86,6 +86,9 @@ class BlogController extends Controller
         $blog = Blog::find($id);
         $users = User::query()->get();
         $query = Comment::query();
+        $query->join('users', 'comments.commented_user_id', '=', 'users.id')
+                ->select('comments.*', 'users.profile_image')
+                ->get();
         $comments = Comment::all();
         $user = Auth::user();
         $nice = Nice::where('blog_id', $blog->id)->where('user_id', auth()->user()->id)->first();

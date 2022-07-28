@@ -127,7 +127,14 @@
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-4 border bg-info text-center">
+                        <div class="col-md-4 border bg-info float-start">
+                            <label for="profile-image">
+                                @if ($comment->user->profile_image === null)
+                                    <img class="rounded-circle " src="{{ asset('default.jpeg') }}" alt="プロフィール画像" width="60" height="60">
+                                @else
+                                    <img class="rounded-circle " src="{{ Storage::url($comment->user->profile_image) }}" alt="プロフィール画像" width="60" height="60">
+                                @endif
+                            </label>
                             {{ $comment->user->name }}
                         </div>
                         <div class="col-md-8 border">
