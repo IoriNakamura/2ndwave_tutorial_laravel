@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <form action="/users/{{$user->id}}" method='post'>
+    <form action="/users/{{$user->id}}" method='post'enctype="multipart/form-data">
         @method('PUT')
         @csrf 
         <div class="row justify-content-center">
@@ -45,6 +45,26 @@
                     </div>
                     <div class="col-md-8 border">
                         <input type='text' name='user[comment]' class="form-control" required='true' value="{{ $user->comment }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 border bg-info text-center">
+                        プロフィール画像
+                    </div>
+                    <div class="col-md-8 border">
+                        <label for="profile-image">
+                            @if ($user->profile_image === null)
+                                <img class="rounded-circle" src="{{ asset('default.jpeg') }}" alt="プロフィール画像" width="100" height="100">
+                            @else
+                                <img class="rounded-circle" src="{{ Storage::url($user->profile_image) }}" alt="プロフィール画像" width="100" height="100">
+                            @endif
+                            <input id="profile-image" name="profile_image" type="file" class="form-control @error('profile-image') is-invalid @enderror" style="display:none;" value="" accept="image/png, image/jpeg">
+                        </label>
+                        @error('profile-image')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                 </div>
             </div>

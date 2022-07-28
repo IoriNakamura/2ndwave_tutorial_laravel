@@ -26,17 +26,13 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $data = $request->user;
+        if ($request->profile_image != null) {
+            $profileImagePath = $request->profile_image->store('public/profiles');
+            $data['profile_image'] = $profileImagePath;
+        }
         $user = Auth::user();
-        $data['password'] = Hash::make($data['password']);    
-
-        $user->update([
-            'name'      => $data['name'],
-            'email'     => $data['email'],
-            'password'  => $data['password'],
-            'favorites' => $data['favorites'],
-            'comment'   => $data['comment']
-        ]);
-
+        $data['password'] = Hash::make($data['password']);
+        $user->fill($data)->save();
         $this->success('messages.success.updated', ['name'=>'ユーザー']);
         return view ('users.index', compact('user'));
     }
