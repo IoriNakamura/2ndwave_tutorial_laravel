@@ -95,8 +95,7 @@ class MyPageController extends Controller
                 });
             }
         }
-        //dump($user);
-        //die;
+        
         $blogs = $query->sortable()->paginate(5);
         return view('mypages.show', compact('user', 'blogs', 'from', 'until', 'keyword'));
     }
