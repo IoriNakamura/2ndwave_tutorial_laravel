@@ -31,22 +31,44 @@
                         <input type='text' name='user[password]' class="form-control" required='true' placeholder="パスワードは安全のため表示していません">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4 border bg-info text-center">
-                        好きなもの・趣味
+                @if($user->favorites != null)
+                    <div class="row">
+                        <div class="col-md-4 border bg-info text-center">
+                            好きなもの・趣味
+                        </div>
+                        <div class="col-md-8 border">
+                            <input type='text' name='user[favorites]' class="form-control"  value="{{ $user->favorites }}">
+                        </div>
                     </div>
-                    <div class="col-md-8 border">
-                        <input type='text' name='user[favorites]' class="form-control" required='true' value="{{ $user->favorites }}">
+                @else
+                    <div class="row">
+                        <div class="col-md-4 border bg-info text-center">
+                            好きなもの・趣味
+                        </div>
+                        <div class="col-md-8 border">
+                            <input type='text' name='user[favorites]' class="form-control" placeholder="未記入">
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 border bg-info text-center">
-                        ひとこと
+                @endif
+                @if($user->comment != null )
+                    <div class="row">
+                        <div class="col-md-4 border bg-info text-center">
+                            ひとこと
+                        </div>
+                        <div class="col-md-8 border">
+                            <input type='text' name='user[comment]' class="form-control"  value="{{ $user->comment }}">
+                        </div>
                     </div>
-                    <div class="col-md-8 border">
-                        <input type='text' name='user[comment]' class="form-control" required='true' value="{{ $user->comment }}">
+                @else
+                    <div class="row">
+                        <div class="col-md-4 border bg-info text-center">
+                            ひとこと
+                        </div>
+                        <div class="col-md-8 border">
+                            <input type='text' name='user[comment]' class="form-control"  placeholder="未記入">
+                        </div>
                     </div>
-                </div>
+                @endif
                 <div class="row">
                     <div class="col-md-4 border bg-info text-center">
                         プロフィール画像
