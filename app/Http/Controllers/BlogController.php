@@ -68,7 +68,7 @@ class BlogController extends Controller
         }
 
         
-        $blogs = $query->sortable()->paginate(5);
+        $blogs = $query->sortable()->orderBy('id', 'desc')->paginate(5);
         //dump($blogs);
         //die;
 
