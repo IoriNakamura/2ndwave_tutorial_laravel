@@ -24,11 +24,21 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 border bg-info text-center">
-                        パスワード
-                    </div>
+                    <label for="password" class="col-md-4 border bg-info text-center">{{ __('パスワード') }}</label>
+
                     <div class="col-md-8 border">
-                        <input type='text' name='user[password]' class="form-control" required='true' placeholder="パスワードは安全のため表示していません">
+                        @if (!empty($message))
+                            <input id="password" type="password" class="form-control" name="user[password]" placeholder="{{$message}}">
+                        @else
+                            <input id="password" type="password" class="form-control" name="user[password]" >
+                        @endif
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="password-confirm" class="col-md-4 border bg-info text-center">{{ __('確認用パスワード') }}</label>
+
+                    <div class="col-md-8 border">
+                        <input id="password-confirm" type="password" class="form-control" name="user[password_confirmation]">
                     </div>
                 </div>
                 @if($user->favorites != null)
