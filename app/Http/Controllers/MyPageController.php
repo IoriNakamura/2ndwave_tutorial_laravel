@@ -51,7 +51,7 @@ class MyPageController extends Controller
                 });
             }
         }
-        $blogs = $query->sortable()->paginate(5);
+        $blogs = $query->sortable()->orderBy('id', 'desc')->paginate(5);
         return view('mypages.index', compact('blogs', 'user_name', 'from', 'until', 'keyword', 'user'));
     }
 
@@ -96,7 +96,7 @@ class MyPageController extends Controller
             }
         }
         
-        $blogs = $query->sortable()->paginate(5);
+        $blogs = $query->sortable()->orderBy('id', 'desc')->paginate(5);
         return view('mypages.show', compact('user', 'blogs', 'from', 'until', 'keyword'));
     }
 }

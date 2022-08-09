@@ -69,7 +69,7 @@ class NiceController extends Controller
             }
         }
 
-        $blogs = $query->sortable()->orderBy('blog_id')->paginate(5);
+        $blogs = $query->sortable()->orderBy('blog_id', 'desc')->paginate(5);
 
         return view('nices.index', compact('blogs', 'user_name', 'keyword', 'from', 'until'));
     }
